@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import Card from './Card';
 function Addtask() {
 	const [tasks, setTasks] = useState([]);
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -166,7 +167,7 @@ function Addtask() {
 			)}
 
 			<div className="mt-8 w-full max-w-md mx-auto">
-				{tasks.map((task, index) => (
+				{ tasks.length === 0 ? <Card /> : tasks.map((task, index) => (
 					<div key={index} className="mb-2 p-4 bg-white rounded-lg shadow">
 						<h3 className="font-bold">{task.name}</h3>
 						<p>{task.details}</p>
